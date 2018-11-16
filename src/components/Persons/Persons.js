@@ -20,10 +20,13 @@ class Persons extends Component {
         console.log('[UPDATE Persons.js] Inside componentWillReceiveProps()');
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('[UPDATE Persons.js] Inside shouldComponentUpdate', nextProps, nextState);
-        return nextProps.persons !== this.props.person; 
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //    console.log('[UPDATE Persons.js] Inside shouldComponentUpdate', nextProps, nextState);
+    //    return nextProps.persons !== this.props.person || 
+    //    nextProps.changed !== this.props.changed ||
+    //    nextProps.clicked !== this.props.clicked;
+    //   // return true;
+    // }
 
     componentWillUpdate(nextProps, nextState){
         console.log('[UPDATE Persons.js] Inside componentWillUpdate', nextProps, nextState);
@@ -42,7 +45,7 @@ class Persons extends Component {
                 age={person.age}
                 key={person.id}
                 changed={(event) => this.props.changed(event, person.id)}/>
-        } );   
+        } );
     }
 };
 export default Persons;
